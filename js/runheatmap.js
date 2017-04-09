@@ -84,44 +84,44 @@ function initBeacon() {
 
 	beacon34 = {
 		id: 34,
-		y: 200,
-		x: 142,
+		y: 235,
+		x: 95,
 		value: 0
 	};
 	beacon24 = {
 		id: 24,
-		y: 200,
-		x: 284,
+		y: 235,
+		x: 260,
 		value: 0
 	};
 	beacon22 = {
 		id: 22,
-		y: 200,
-		x: 426,
+		y: 235,
+		x: 420,
 		value: 0
 	};
 	beacon35 = {
 		id: 35,
-		y: 200,
-		x: 568,
+		y: 235,
+		x: 580,
 		value: 0
 	};
 	beacon23 = {
 		id: 23,
-		y: 200,
-		x: 710,
+		y: 235,
+		x: 740,
 		value: 0
 	};
 	beacon36 = {
 		id: 36,
-		y: 200,
-		x: 852,
+		y: 235,
+		x: 900,
 		value: 0
 	};
 	beacon37 = {
 		id: 37,
-		y: 200,
-		x: 994,
+		y: 235,
+		x: 1060,
 		value: 0
 	};
 }
