@@ -34,6 +34,7 @@ $(document).ready(function() {
 
 	$('#ex1').change(function(){
 		filterByMinutes($('#ex1').val());
+		getRequest();
 		generateHeatmap();
 	});
 
@@ -195,28 +196,30 @@ function generateResultTable(beacons) {
 
 	for (var i in beacons) {
 		if(beacons[i].id == 34) {
-			console.log(beacons[i].value);
+			//console.log(beacons[i].value);
 			$("#result34").text(beacons[i].value);
 		} else if(beacons[i].id == 24) {
-			console.log(beacons[i].value);
+			//console.log(beacons[i].value);
 			$("#result24").text(beacons[i].value);
 		} else if(beacons[i].id == 22) {
-			console.log(beacons[i].value);
+			//console.log(beacons[i].value);
 			$("#result22").text(beacons[i].value);
 		} else if(beacons[i].id == 35) {
-			console.log(beacons[i].value);
+			//console.log(beacons[i].value);
 			$("#result35").text(beacons[i].value);
 		} else if(beacons[i].id == 23) {
-			console.log(beacons[i].value);
+			//console.log(beacons[i].value);
 			$("#result23").text(beacons[i].value);
 		} else if(beacons[i].id == 36) {
-			console.log(beacons[i].value);
+			//console.log(beacons[i].value);
 			$("#result36").text(beacons[i].value);
 		} else if(beacons[i].id == 37) {
-			console.log(beacons[i].value);
+			//console.log(beacons[i].value);
 			$("#result37").text(beacons[i].value);
 		}
 	}
+
+	console.log(beacons);
 }
 
 // Get request with timeStart and timeEnd
