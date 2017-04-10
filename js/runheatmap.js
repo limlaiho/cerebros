@@ -5,6 +5,8 @@ var startHour;
 var endHour;
 var result;
 var filterResult;
+var uuid;
+var individualMode;
 
 var heatmapInstance;
 
@@ -19,6 +21,10 @@ var beacon37;
 $(document).ready(function() {
 
 	initBeacon();
+
+	$("#modeButton :input").change(function() {
+    	console.log(this);
+	});
 
 	// Initialise datepicker
     $("#datepicker").datepicker({
@@ -222,7 +228,7 @@ function generateResultTable(beacons) {
 	console.log(beacons);
 }
 
-// Get request with timeStart and timeEnd
+// Get request with timeStart and timeEnd - All visitors mode
 function getRequest() {
 
 	timeStartJSON = date + " " + startHour;
@@ -237,6 +243,37 @@ function getRequest() {
 	  "async": false,
 	  "crossDomain": true,
 	  "url": "https://derrickgoh.me:8443/IoTWebService/iotServlet",
+	  "method": "GET",
+	  "headers": {
+		    "timestart": timeStartJSON,
+		    "timeend": timeEndJSON,
+		    "cache-control": "no-cache",
+		    "postman-token": "064a582d-88f5-398c-0c55-ade10d7746e9"
+	  	}
+	}
+
+	$.ajax(settings).done(function (response) {
+  		console.log("Array size: " + response.length);
+  		result = response;
+	});
+}
+
+// Get request with timeStart and timeEnd - All visitors mode
+function getIndividualRequest() {
+
+
+	timeStartJSON = date + " " + startHour;
+	timeEndJSON = date + " " + endHour;
+
+	console.log("Start time: " + timeStartJSON);
+	console.log("End time: " + timeEndJSON);
+
+	getData = {"timeStart": timeStartJSON, "timeEnd": timeEndJSON};
+
+	var settings = {
+	  "async": false,
+	  "crossDomain": true,
+	  "url": "https://derrickgoh.me:8443/IoTWebService/uuidServlet",
 	  "method": "GET",
 	  "headers": {
 		    "timestart": timeStartJSON,
