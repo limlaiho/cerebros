@@ -22,8 +22,25 @@ $(document).ready(function() {
 
 	initBeacon();
 
-	$("#modeButton :input").change(function() {
-    	console.log(this);
+	// Setup display
+	$("#visitorname").hide();
+	$("#resultable").hide();
+
+	$('.btn-primary').on('click', function(){
+		if ($(this).find('input').attr('id') === "individual") {
+			individualMode = true;
+			$("#visitorname").show();
+			$("#resultable").hide();
+		} else {
+			individualMode = false;
+			$("#visitorname").hide();
+			$("#resultable").show();
+		}
+	});
+
+	$('#selectedVisitor').change(function(){
+		uuid = $('#selectedVisitor :selected').val();
+		console.log(uuid);
 	});
 
 	// Initialise datepicker
@@ -40,13 +57,23 @@ $(document).ready(function() {
 
 	$('#ex1').change(function(){
 		filterByMinutes($('#ex1').val());
-		getRequest();
+		/*
+		if(individualMode) {
+			getIndividualRequest() 
+		} else {
+			getRequest();
+		}
+		*/
 		generateHeatmap();
 	});
 
 	$('#datepicker').change(function(){
 		date = $('#datepicker').data('datepicker').getFormattedDate('yyyy-mm-dd');
-		getRequest();
+		if(individualMode) {
+			getIndividualRequest() 
+		} else {
+			getRequest();
+		}
 		generateHeatmap();
 	});
 
@@ -70,7 +97,11 @@ $(document).ready(function() {
 		$("#startTimeLabel").text(startHour);
 		$("#endTimeLabel").text(endHour);
 
-		getRequest();
+		if(individualMode) {
+			getIndividualRequest() 
+		} else {
+			getRequest();
+		}
 		generateHeatmap();
 	});
 });
@@ -179,8 +210,6 @@ function generateHeatmap() {
 		}
 	}
 
-	//console.log(beacon34);
-
 	var beacons = [beacon34, beacon24, beacon22, beacon35, beacon23, beacon36, beacon37];
 	
 	var dataValue = {
@@ -225,7 +254,7 @@ function generateResultTable(beacons) {
 		}
 	}
 
-	console.log(beacons);
+	//console.log(beacons);
 }
 
 // Get request with timeStart and timeEnd - All visitors mode
@@ -261,14 +290,14 @@ function getRequest() {
 // Get request with timeStart and timeEnd - All visitors mode
 function getIndividualRequest() {
 
-
 	timeStartJSON = date + " " + startHour;
 	timeEndJSON = date + " " + endHour;
 
 	console.log("Start time: " + timeStartJSON);
 	console.log("End time: " + timeEndJSON);
+	console.log("uuid: " + uuid);
 
-	getData = {"timeStart": timeStartJSON, "timeEnd": timeEndJSON};
+	getData = {"timeStart": timeStartJSON, "timeEnd": timeEndJSON, "uuid": uuid};
 
 	var settings = {
 	  "async": false,
@@ -278,6 +307,7 @@ function getIndividualRequest() {
 	  "headers": {
 		    "timestart": timeStartJSON,
 		    "timeend": timeEndJSON,
+		    "uuid" : uuid,
 		    "cache-control": "no-cache",
 		    "postman-token": "064a582d-88f5-398c-0c55-ade10d7746e9"
 	  	}

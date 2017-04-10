@@ -67,29 +67,27 @@
 
     <div class="row row-centered">
 
-      <div class="col-md-6">
+      <div class="col-md-4">
+        <label for="mode">Mode</label>
         <div id="modeButton" class="btn-group" data-toggle="buttons">
           <label class="btn btn-primary">
             <input type="radio" name="options" id="allvisitors" autocomplete="off" checked> All Vistiors
           </label>
-        <label class="btn btn-primary">
-          <input type="radio" name="options" id="Individual" autocomplete="off"> Individual
-            </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="options" id="individual" autocomplete="off"> Individual
+          </label>
         </div>
       </div>
 
       <div class="col-md-3">
-        <div class="form-group">
-          <label for="hour">Visitor Name</label>
-          <select class="form-control" id="selectedvisitor">
+        <div class="form-group" id="visitorname">
+          <label for="visitorname">Visitor Name</label>
+          <select class="form-control" id="selectedVisitor">
             <option value="empty">Select</option>
-            <option value="1">Lai Ho</option>
-            <option value="2">Yuan Yang</option>
-            <option value="3">Yi Lin</option>
-            <option value="4">Shen Song</option>
-            <option value="5">05:00</option>
-            <option value="6">06:00</option>
-            <option value="6">06:00</option>
+            <option value="4E46C461-C83E-439B-986C-D798E1BD740D">Lai Ho</option>
+            <option value="55EE13B7-054C-411C-863B-FD7EDFA25AD1">Yuan Yang</option>
+            <option value="BEB9CC8-E327-4177-AFF5-3A23B264CBC5">Yi Lin</option>
+            <option value="3EFE32A3-8378-4076-B93B-0937635F97FA">Shen Song</option>
           </select>
         </div>
       </div>
@@ -160,7 +158,7 @@
     <!-- Result Table -->
     <div class="row">
 
-      <table class="table table-bordered text-center" style="margin-top: 10px;">
+      <table class="table table-bordered text-center" id="resultable" style="margin-top: 10px;">
         <thead>
               <tr> 
                   <th class="text-center">Start Time</th>
