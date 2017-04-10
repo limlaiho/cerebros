@@ -74,7 +74,7 @@ function initBeacon() {
 	// Create configuration object
 	var config = {
 	  container: document.getElementById('heatmapContainer'),
-	  radius: 150,
+	  radius: 175,
 	  maxOpacity: 0.6,
 	  minOpacity: 0,
 	  blur: .75,
