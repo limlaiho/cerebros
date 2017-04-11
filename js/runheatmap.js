@@ -213,19 +213,19 @@ function generateHeatmap() {
 
 	for (var i in filterResult) {
 		if(filterResult[i].beacon_id == "iot34") {
-			beacon34.value = filterResult[i].count;
+			beacon34.value = filterResult[i].count * 10;
 		} else if (filterResult[i].beacon_id == "iot24") {
-			beacon24.value = filterResult[i].count;
+			beacon24.value = filterResult[i].count * 10;
 		} else if (filterResult[i].beacon_id == "iot22") {
-			beacon22.value = filterResult[i].count;
+			beacon22.value = filterResult[i].count * 10;
 		} else if (filterResult[i].beacon_id == "iot35") {
-			beacon35.value = filterResult[i].count;
+			beacon35.value = filterResult[i].count * 10;
 		} else if (filterResult[i].beacon_id == "iot23") {
-			beacon23.value = filterResult[i].count;
+			beacon23.value = filterResult[i].count * 10;
 		} else if (filterResult[i].beacon_id == "iot36") {
-			beacon36.value = filterResult[i].count;
+			beacon36.value = filterResult[i].count * 10;
 		} else if (filterResult[i].beacon_id == "iot37") {
-			beacon37.value = filterResult[i].count;
+			beacon37.value = filterResult[i].count * 10;
 		}
 	}
 
