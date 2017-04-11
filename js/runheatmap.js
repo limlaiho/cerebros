@@ -213,19 +213,21 @@ function generateHeatmap() {
 
 	for (var i in filterResult) {
 		if(filterResult[i].beacon_id == "iot34") {
-			beacon34.value = filterResult[i].count * 10;
+			beacon34.value = filterResult[i].count * 2;
+			console.log(beacon34.value);
 		} else if (filterResult[i].beacon_id == "iot24") {
-			beacon24.value = filterResult[i].count * 10;
+			beacon24.value = filterResult[i].count * 2;
+			console.log(beacon24.value);
 		} else if (filterResult[i].beacon_id == "iot22") {
-			beacon22.value = filterResult[i].count * 10;
+			beacon22.value = filterResult[i].count * 2;
 		} else if (filterResult[i].beacon_id == "iot35") {
-			beacon35.value = filterResult[i].count * 10;
+			beacon35.value = filterResult[i].count * 2;
 		} else if (filterResult[i].beacon_id == "iot23") {
-			beacon23.value = filterResult[i].count * 10;
+			beacon23.value = filterResult[i].count * 2;
 		} else if (filterResult[i].beacon_id == "iot36") {
-			beacon36.value = filterResult[i].count * 10;
+			beacon36.value = filterResult[i].count * 2;
 		} else if (filterResult[i].beacon_id == "iot37") {
-			beacon37.value = filterResult[i].count * 10;
+			beacon37.value = filterResult[i].count * 2;
 		}
 	}
 
