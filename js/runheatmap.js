@@ -8,6 +8,10 @@ var filterResult;
 var uuid;
 var individualMode;
 
+var dateSet;
+var hourSet;
+var minuteSet;
+
 var heatmapInstance;
 
 var beacon34;
@@ -19,8 +23,11 @@ var beacon36;
 var beacon37;
 
 $(document).ready(function() {
-
 	initBeacon();
+
+	//dateSet = false;
+	//hourSet = false;
+	//minuteSet = false;
 
 	// Setup display
 	$("#visitorname").hide();
@@ -56,6 +63,7 @@ $(document).ready(function() {
 	});
 
 	$('#ex1').change(function(){
+		minuteSet = true;
 		filterByMinutes($('#ex1').val());
 		/*
 		if(individualMode) {
@@ -64,20 +72,28 @@ $(document).ready(function() {
 			getRequest();
 		}
 		*/
-		generateHeatmap();
+
+		// if(hourSet && dateSet) {
+			generateHeatmap();
+		// }
+		
 	});
 
 	$('#datepicker').change(function(){
+		dateSet = true;
 		date = $('#datepicker').data('datepicker').getFormattedDate('yyyy-mm-dd');
 		if(individualMode) {
 			getIndividualRequest() 
 		} else {
 			getRequest();
 		}
-		generateHeatmap();
+		// if(hourSet && minuteSet) {
+			generateHeatmap();
+		// }
 	});
 
 	$('#selectedHour').change(function(){
+		hourSet = true;
 		hour = $('#selectedHour :selected').val();
 
 		if(hour < 10) {
@@ -102,7 +118,9 @@ $(document).ready(function() {
 		} else {
 			getRequest();
 		}
-		generateHeatmap();
+		// if(minuteSet && dateSet) {
+			generateHeatmap();
+		// }
 	});
 });
 
@@ -120,45 +138,46 @@ function initBeacon() {
 
 	heatmapInstance = h337.create(config);
 
-	beacon34 = {
-		id: 34,
-		y: 235,
-		x: 95,
+	beacon22 = {
+		id: 22,
+		y: 500,
+		x: 75,
+		value: 0
+	};
+	
+	beacon23 = {
+		id: 23,
+		y: 500,
+		x: 345,
 		value: 0
 	};
 	beacon24 = {
 		id: 24,
-		y: 235,
-		x: 260,
+		y: 500,
+		x: 540,
 		value: 0
 	};
-	beacon22 = {
-		id: 22,
-		y: 235,
-		x: 420,
+	beacon34 = {
+		id: 34,
+		y: 500,
+		x: 760,
 		value: 0
 	};
 	beacon35 = {
 		id: 35,
-		y: 235,
-		x: 580,
-		value: 0
-	};
-	beacon23 = {
-		id: 23,
-		y: 235,
-		x: 740,
+		y: 500,
+		x: 985,
 		value: 0
 	};
 	beacon36 = {
 		id: 36,
-		y: 235,
-		x: 900,
+		y: 280,
+		x: 875,
 		value: 0
 	};
 	beacon37 = {
 		id: 37,
-		y: 235,
+		y: 280,
 		x: 1060,
 		value: 0
 	};
